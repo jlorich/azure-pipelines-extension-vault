@@ -13,6 +13,7 @@ pr:
 
 variables:
   publisher: hashicorp
+  serviceUrl: https://dev.azure.com/$(publisher)
 
 # Build and Test
 stages:
@@ -31,4 +32,4 @@ stages:
   jobs:
   - template: azure-pipelines-extension-release.yml
     parameters:
-      serviceUrl: https://dev.azure.com/hashicorp
+      serviceUrl: $(serviceUrl)
