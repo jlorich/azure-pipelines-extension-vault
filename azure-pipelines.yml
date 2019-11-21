@@ -11,10 +11,6 @@ trigger:
 pr:
   autoCancel: true
 
-variables:
-  publisher: hashicorp
-  serviceUrl: https://dev.azure.com/$(publisher)
-
 # Build and Test
 stages:
 - stage: Build
@@ -31,5 +27,3 @@ stages:
 - stage: Release
   jobs:
   - template: azure-pipelines-extension-release.yml
-    parameters:
-      serviceUrl: $(serviceUrl)
