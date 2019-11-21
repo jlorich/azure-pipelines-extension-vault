@@ -11,6 +11,9 @@ trigger:
 pr:
   autoCancel: true
 
+variables:
+  publisher: hashicorp
+
 # Build and Test
 stages:
 - stage: Build
@@ -18,7 +21,7 @@ stages:
   jobs:
   - template: azure-pipelines-extension-build.yml
     parameters:
-      publisher: hashicorp
+      publisher: $(publisher)
       tasks:
         - VaultInstaller
         - Vault
