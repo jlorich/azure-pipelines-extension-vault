@@ -25,22 +25,22 @@ export class VaultTask {
 
         switch(this.options.command) {
             case 'kvGet':
-                let kvGetResponse : KeyValueGetResponse = await this.vault.keyValue.get(this.options.key);
+                let kvGetResponse : KeyValueGetResponse = await this.vault.keyValue.get(this.options.path);
                 //todo: add prefix
-                this.setResultVariables(kvGetResponse.data.data, this.options.key);
+                this.setResultVariables(kvGetResponse.data.data, this.options.path);
                 break;
             case 'kvPut':
                 data = JSON.parse(this.options.data);
-                await this.vault.keyValue.put(this.options.key, data)
+                await this.vault.keyValue.put(this.options.path, data)
                 break;
             case 'read':
-                let readResponse : KeyValueReadResponse = await this.vault.keyValue.read(this.options.key);
+                let readResponse : KeyValueReadResponse = await this.vault.keyValue.read(this.options.path);
                 //todo: add prefix
-                this.setResultVariables(readResponse.data, this.options.key);
+                this.setResultVariables(readResponse.data, this.options.path);
                 break;
             case 'write':
                 data = JSON.parse(this.options.data);
-                await this.vault.keyValue.write(this.options.key, data)
+                await this.vault.keyValue.write(this.options.path, data)
                 break;
             default:
                 throw new Error("Invalid command");

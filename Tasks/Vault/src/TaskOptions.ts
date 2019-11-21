@@ -16,7 +16,6 @@ export class TaskOptions {
     // Basic
     readonly command : string = "";
     readonly path : string = "";
-    readonly key : string = "";
     readonly data : string = "";
     readonly prefix : string = "";
     
