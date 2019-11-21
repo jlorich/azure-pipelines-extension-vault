@@ -1,6 +1,3 @@
-parameters:
-  serviceUrl: 
-
 jobs:
 - job: release
   displayName: Publish

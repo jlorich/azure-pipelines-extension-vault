@@ -53,7 +53,7 @@ export class VaultClient {
      */
     public async get<T>(path : string) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.get<T>(url) as VaultApiResponse<T> ;
+            return await axios.get<T>(path) as VaultApiResponse<T> ;
         } catch(error) {
             throw this.createApiError(path, error);
         }
