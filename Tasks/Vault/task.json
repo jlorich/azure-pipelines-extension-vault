@@ -51,15 +51,6 @@
             "visibleRule": "command = kvGet || command = kvPut"
         },
         {
-            "name": "path",
-            "type": "string",
-            "label": "Path",
-            "defaultValue": "",
-            "required": true,
-            "helpMarkDown": "The path to access",
-            "visibleRule": "command = read || command = write"
-        },
-        {
             "name": "data",
             "type": "string",
             "label": "Data",
