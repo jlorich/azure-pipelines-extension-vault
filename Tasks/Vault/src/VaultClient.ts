@@ -41,7 +41,7 @@ export class VaultClient {
         let auth = await this.authenticationProvider.authenticate();
 
         this.client = axios.create({
-            baseUrl: apiUrl,
+            baseURL: apiUrl,
             headers: { 'Authorization': 'Bearer ' + auth.clientToken }
         } as AxiosRequestConfig);
     }
@@ -53,7 +53,7 @@ export class VaultClient {
      */
     public async get<T>(path : string) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.get<T>(path) as VaultApiResponse<T> ;
+            return await this.client.get<T>(path) as VaultApiResponse<T> ;
         } catch(error) {
             throw this.createApiError(path, error);
         }
@@ -67,7 +67,7 @@ export class VaultClient {
      */
     public async put<T>(path : string, data : any) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.put<T>(path, data) as VaultApiResponse<T>;
+            return await this.client.put<T>(path, data) as VaultApiResponse<T>;
         } catch(error) {
             throw this.createApiError(path, error);
         }
@@ -81,7 +81,7 @@ export class VaultClient {
      */
     public async patch<T>(path : string, data : any) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.patch<T>(path, data) as VaultApiResponse<T>;
+            return await this.client.patch<T>(path, data) as VaultApiResponse<T>;
         } catch(error) {
             throw this.createApiError(path, error);
         }
@@ -95,7 +95,7 @@ export class VaultClient {
      */
     public async post<T>(path : string, data : any) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.post<T>(path, data) as VaultApiResponse<T>;
+            return await this.client.post<T>(path, data) as VaultApiResponse<T>;
         } catch(error) {
             throw this.createApiError(path, error);
         }
@@ -109,7 +109,7 @@ export class VaultClient {
      */
     public async delete<T>(path : string) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.delete<T>(path) as VaultApiResponse<T>;
+            return await this.client.delete<T>(path) as VaultApiResponse<T>;
         } catch(error) {
             throw this.createApiError(path, error);
         }
@@ -123,7 +123,7 @@ export class VaultClient {
      */
     public async head<T>(path : string) : Promise<VaultApiResponse<T>> {
         try {
-            return await axios.head<T>(path) as VaultApiResponse<T>;
+            return await this.client.head<T>(path) as VaultApiResponse<T>;
         } catch(error) {
             throw this.createApiError(path, error);
         }

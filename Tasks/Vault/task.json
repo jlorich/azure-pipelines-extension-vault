@@ -42,9 +42,9 @@
             }
         },
         {
-            "name": "key",
+            "name": "path",
             "type": "string",
-            "label": "Key",
+            "label": "Path",
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "The key path to access",
